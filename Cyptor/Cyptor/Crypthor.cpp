@@ -7,45 +7,48 @@
 using namespace std;
 
 string Crypthor::Crypt(string _Password, string _Key)
-{
-	string crypter;
-	string finalHexa;
-	char needsConvert;
-	int j = 0;
-	
+    {
+    string crypter;
+    string finalHexa;
+    char needsConvert;
+    int j = 0;
 
-	for (int i = 0; i <= _Password.length()-1; i++)
+    for (int i = 0; i <= _Password.length()-1; i++)
+        {
+        needsConvert = cryptChar(_Password[i], _Key[j]);
+        finalHexa = convertCharToHex(needsConvert);
+
+        crypter += finalHexa;
+
+        j++;
+        if (j == _Key.length())
+            {
+            j = 0;
+            }
+        }
+    for (int i = 0; i <= crypter.length()-1; i++)
 	{
-		needsConvert = cryptChar(_Password[i], _Key[j]);
-		finalHexa = convertCharToHex(needsConvert);
-
-		crypter += finalHexa;
-
-		j++;
-		if (j == _Key.length())
-		{
-			j = 0;
-		}
+		crypter[i] = toupper(crypter[i]);
 	}
 
-	return crypter;
-}
+    return crypter;
+    }
 
 char Crypthor::cryptChar(char _charPassword, char _charKey)
-{
-	int temp = _charPassword + _charKey;
-	int resultat = temp^1;
-
-	return resultat;
-
-}
+    {
+    int temp = _charPassword + _charKey;
+    int resultat = ~temp;
+    //cout << resultat;
+    return resultat;
+    }
 
 string Crypthor::convertCharToHex(char  _char)
-{
-	stringstream hexa;
+    {
+    int charactere = _char;
 
-	hexa << hex << _char;
+    stringstream hexa;
 
-	return hexa.str();
+    hexa << hex << charactere;
 
-}
+    return hexa.str();
+    }

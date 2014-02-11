@@ -24,26 +24,29 @@ bool ConsoleMenu::manageChoice(char input)
     switch (input)
         {
         case 'Q':
-            choix = true;
+            choix = false;
             break;
         case 'q' :
-            choix = true;
+            choix = false;
             break;
         case 'E':
-            cout << "entrer un mot de passe a cryter";
-            getline(cin,password);
-            cout << "entrer la clef de cryptage";
-            getline(cin,clef);
-            cryptor.Crypt(password,clef);
-            choix = false;
+            cout << "entrer un mot de passe a cryter" << endl;
+            cin >> password;
+            cout << endl << "entrer la clef de cryptage" << endl;
+            cin >> clef;
+            cout << cryptor.Crypt(password,clef) << endl;
+            system("pause");
+            choix = true;
             break;
         case 'e' :
-            cout << "entrer un mot de passe a cryter";
-            getline(cin,password);
-            cout << "entrer la clef de cryptage";
-            getline(cin,clef);
+            cout << "entrer un mot de passe a cryter" << endl;
+            cin >> password;
+            cout << endl << "entrer la clef de cryptage" << endl;
+            cin >> clef;
             cryptor.Crypt(password,clef);
-            choix = false;
+            cout << cryptor.Crypt(password,clef) << endl;
+            system("pause");
+            choix = true;
             break;
         }
     return choix;
@@ -64,10 +67,10 @@ char ConsoleMenu::readValidInput(char  _tabValidInputs[], int _nbElements)
                 {
                 valid = true;
                 }
-            if (i == _nbElements - 1){
+            }
+        if (!valid){
                 cout << "le type d'entré est invalide!";
                 }
-            }
         }while(!valid);
     return input;
     }
