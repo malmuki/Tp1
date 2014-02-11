@@ -33,7 +33,7 @@ bool ConsoleMenu::manageChoice(char input)
             cout << "entrer un mot de passe a cryter";
             getline(cin,password);
             cout << "entrer la clef de cryptage";
-            cin >> clef;
+            getline(cin,clef);
             cryptor.Crypt(password,clef);
             choix = false;
             break;
@@ -41,7 +41,7 @@ bool ConsoleMenu::manageChoice(char input)
             cout << "entrer un mot de passe a cryter";
             getline(cin,password);
             cout << "entrer la clef de cryptage";
-            cin >> clef;
+            getline(cin,clef);
             cryptor.Crypt(password,clef);
             choix = false;
             break;

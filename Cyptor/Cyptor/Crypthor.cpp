@@ -14,7 +14,7 @@ string Crypthor::Crypt(string _Password, string _Key)
 	int j = 0;
 	
 
-	for (int i = 0; i <= _Password.length-1; i++)
+	for (int i = 0; i <= _Password.length()-1; i++)
 	{
 		needsConvert = cryptChar(_Password[i], _Key[j]);
 		finalHexa = convertCharToHex(needsConvert);
@@ -22,7 +22,7 @@ string Crypthor::Crypt(string _Password, string _Key)
 		crypter += finalHexa;
 
 		j++;
-		if (j == _Key.length)
+		if (j == _Key.length())
 		{
 			j = 0;
 		}
