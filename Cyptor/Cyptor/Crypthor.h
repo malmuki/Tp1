@@ -2,11 +2,12 @@
 
 using namespace std;
 
+
 class Crypthor
     {
     public:
-        string Crypt(string entreePassword, string entreeKey);
+        string Crypt(string _Password, string _Key);
     private:
-        bool manageChoice(char _input);
-        char readValidInput(char  _tabValidInputs[], int _nbElements);
+        char cryptChar(char _charPassword, char _charKey);
+        string convertCharToHex(char  _char);
     };
