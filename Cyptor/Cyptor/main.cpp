@@ -1,6 +1,6 @@
 #include "ConsoleMenu.h"
 
-void main() {  
-    ConsoleMenu menu;   
-    menu.Run(); 
+void main() {
+    ConsoleMenu menu;
+    menu.Run();
     }
