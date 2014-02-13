@@ -30,9 +30,9 @@ bool ConsoleMenu::manageChoice(char input)
         case 'E':
         case 'e' :
             cout << "entrer un mot de passe a cryter" << endl;
-            cin >> password;
+            getline(cin,password);
             cout << endl << "entrer la clef de cryptage" << endl;
-            cin >> clef;
+            getline(cin,clef);
             cryptor.Crypt(password,clef);
             cout << cryptor.Crypt(password,clef) << endl;
             system("pause");
@@ -43,17 +43,17 @@ bool ConsoleMenu::manageChoice(char input)
     }
 char ConsoleMenu::readValidInput(char  _tabValidInputs[], int _nbElements)
     {
-    char input;
+    string input;
     bool valid = false;
 
     displayMenu();
 
     do {
-        cin >> input;
+        getline(cin,input);
 
         for (int i = 0; i < _nbElements; i++)
             {
-            if (_tabValidInputs[i] == input)
+            if (_tabValidInputs[i] == input[0])
                 {
                 valid = true;
                 }
@@ -62,7 +62,7 @@ char ConsoleMenu::readValidInput(char  _tabValidInputs[], int _nbElements)
                 cout << "le type d'entr� est invalide!";
                 }
         }while(!valid);
-    return input;
+    return input[0];
     }
 void ConsoleMenu::displayMenu()
     {
