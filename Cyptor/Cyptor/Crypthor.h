@@ -1,3 +1,13 @@
+/** @file Cryptor.h
+Fichier contenant les entêtes de fonctions et procédures ainsi
+que les déclarations de constantes.
+@author   Alex Moreau
+@author   Francois Chantal
+@date     21 fevrier 2014
+@version  1.2
+*/
+
+#pragma once
 #include <string>
 
 using namespace std;
